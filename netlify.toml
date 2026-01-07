@@ -1,0 +1,8 @@
+[build]
+  publish = "dist"
+  command = "pnpm run build"
+
+[build.environment]
+  # Tell Netlify's secrets scanner to ignore these keys
+  # Supabase anon keys are SAFE to expose in client-side code
+  SECRETS_SCAN_OMIT_KEYS = "VITE_SUPABASE_URL,VITE_SUPABASE_ANON_KEY"
