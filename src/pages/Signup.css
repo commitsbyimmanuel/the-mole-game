@@ -1,0 +1,297 @@
+/* Signup Page Styles - Glassmorphism Design */
+
+.signup-container {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow-y: auto;
+}
+
+.signup-card {
+  width: 100%;
+  max-width: 620px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Header Section */
+.card-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.event-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.event-title {
+  font-family: 'Georgia', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.event-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+/* Event Details */
+.event-details {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.detail-item {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.detail-icon {
+  font-size: 20px;
+}
+
+.detail-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #888;
+  margin: 0 0 4px 0;
+}
+
+.detail-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+/* Form Styles */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+}
+
+.form-group input {
+  padding: 14px 16px;
+  font-size: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #333;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.form-group input::placeholder {
+  color: #aaa;
+}
+
+.form-group input:focus {
+  border-color: rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Submit Button */
+.submit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+}
+
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.submit-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.button-arrow {
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.submit-button:hover .button-arrow {
+  transform: translateX(4px);
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error Message */
+.error-message {
+  padding: 12px 16px;
+  background: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.2);
+  border-radius: 10px;
+  color: #dc3545;
+  font-size: 14px;
+}
+
+/* Privacy Note */
+.privacy-note {
+  text-align: center;
+  font-size: 12px;
+  color: #EEE;
+  margin: 24px 0 0 0;
+}
+
+/* Success Card */
+.success-card {
+  text-align: center;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 24px;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: white;
+}
+
+.success-card h1 {
+  font-size: 28px;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+}
+
+.success-message {
+  font-size: 16px;
+  color: #555;
+  margin: 0 0 24px 0;
+}
+
+.email-reminder {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(255, 193, 7, 0.15);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  border-radius: 12px;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.reminder-icon {
+  font-size: 24px;
+}
+
+.email-reminder p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.event-recap {
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.event-recap p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.event-recap p:first-child {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .signup-card {
+    padding: 28px 24px;
+  }
+
+  .event-title {
+    font-size: 24px;
+  }
+
+  .event-details {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
