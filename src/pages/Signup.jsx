@@ -10,6 +10,7 @@ function Signup() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const [alreadySignedUp, setAlreadySignedUp] = useState(false)
   const [error, setError] = useState(null)
 
   const handleChange = (e) => {
@@ -26,11 +27,31 @@ function Signup() {
     setError(null)
 
     try {
+      // Check if email already exists
+      // Use maybeSingle() instead of single() - it returns null instead of throwing when no row is found
+      const { data: existingUser, error: checkError } = await supabase
+        .from('signups')
+        .select('email, first_name')
+        .eq('email', formData.email.toLowerCase().trim())
+        .maybeSingle()
+
+      // If there's a check error (not a "no rows" error), log it but continue
+      if (checkError) {
+        console.warn('Error checking existing user:', checkError)
+      }
+
+      if (existingUser) {
+        setFormData(prev => ({ ...prev, firstName: existingUser.first_name }))
+        setAlreadySignedUp(true)
+        return
+      }
+
+      // Insert new signup
       const { error: supabaseError } = await supabase
         .from('signups')
         .insert([
           {
-            email: formData.email,
+            email: formData.email.toLowerCase().trim(),
             first_name: formData.firstName,
             whatsapp_phone: formData.whatsappPhone
           }
@@ -41,10 +62,43 @@ function Signup() {
       setIsSuccess(true)
     } catch (err) {
       console.error('Signup error:', err)
+      
+      // Handle unique constraint violation (code 23505) - user already signed up
+      // This is a fallback in case the initial check missed a concurrent signup
+      if (err.code === '23505') {
+        setAlreadySignedUp(true)
+        return
+      }
+      
       setError(err.message || 'Something went wrong. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
+  }
+
+  // Already signed up state
+  if (alreadySignedUp) {
+    return (
+      <div className="signup-container">
+        <div className="signup-card success-card">
+          <div className="success-icon already-icon">👋</div>
+          <h1>You're Already In!</h1>
+          <p className="success-message">
+            Hey <strong>{formData.firstName}</strong>, you've already signed up for this event!
+          </p>
+          <div className="email-reminder">
+            <span className="reminder-icon">📧</span>
+            <p>
+              Keep an eye on your inbox! We'll email you your <strong>secret role</strong> before the event.
+            </p>
+          </div>
+          <div className="event-recap">
+            <p><strong>Saturday, January 17th, 2026</strong></p>
+            <p>Starting at 10:00 AM</p>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   if (isSuccess) {
@@ -63,7 +117,7 @@ function Signup() {
             </p>
           </div>
           <div className="event-recap">
-            <p><strong>Saturday, January 10th, 2026</strong></p>
+            <p><strong>Saturday, January 17th, 2026</strong></p>
             <p>Starting at 10:00 AM</p>
           </div>
         </div>
@@ -85,7 +139,7 @@ function Signup() {
             <span className="detail-icon">📅</span>
             <div>
               <p className="detail-label">Date</p>
-              <p className="detail-value">Saturday, January 10th, 2026</p>
+              <p className="detail-value">Saturday, January 17th, 2026</p>
             </div>
           </div>
           <div className="detail-item">
