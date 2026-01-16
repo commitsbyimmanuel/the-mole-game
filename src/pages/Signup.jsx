@@ -127,95 +127,16 @@ function Signup() {
 
   return (
     <div className="signup-container">
-      <div className="signup-card">
-        <div className="card-header">
-          <span className="event-badge">You're Invited</span>
-          <h1 className="event-title">The Parable of the Mole</h1>
-          <p className="event-subtitle">A Mystery Game Experience</p>
-        </div>
-
-        <div className="event-details">
-          <div className="detail-item">
-            <span className="detail-icon">📅</span>
-            <div>
-              <p className="detail-label">Date</p>
-              <p className="detail-value">Saturday, January 17th, 2026</p>
-            </div>
-          </div>
-          <div className="detail-item">
-            <span className="detail-icon">⏰</span>
-            <div>
-              <p className="detail-label">Time</p>
-              <p className="detail-value">10:00 AM</p>
-            </div>
-          </div>
-        </div>
-
-        <form onSubmit={handleSubmit} className="signup-form">
-          <div className="form-group">
-            <label htmlFor="firstName">First Name</label>
-            <input
-              type="text"
-              id="firstName"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-              placeholder="Enter your first name"
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="email">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="your@email.com"
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="whatsappPhone">WhatsApp Phone Number</label>
-            <input
-              type="tel"
-              id="whatsappPhone"
-              name="whatsappPhone"
-              value={formData.whatsappPhone}
-              onChange={handleChange}
-              placeholder="+1 234 567 8900"
-              required
-            />
-          </div>
-
-          {error && (
-            <div className="error-message">
-              {error}
-            </div>
-          )}
-
-          <button 
-            type="submit" 
-            className="submit-button"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? (
-              <span className="loading-spinner"></span>
-            ) : (
-              <>
-                RSVP Now
-                <span className="button-arrow">→</span>
-              </>
-            )}
-          </button>
-        </form>
-
-        <p className="privacy-note">
-          Your information is safe and will only be used for this event.
+      <div className="signup-card success-card">
+        <div className="success-icon">�</div>
+        <h1>Sign Ups are now closed</h1>
+        <p className="success-message">
+          Thank you for your interest in <strong>The Parable of the Mole</strong>!
         </p>
+        <div className="event-recap">
+          <p><strong>Saturday, January 17th, 2026</strong></p>
+          <p>Starting at 11:15 AM</p>
+        </div>
       </div>
     </div>
   )
