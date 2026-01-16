@@ -1,0 +1,233 @@
+/* Currency Calculator Page Styles */
+
+.calculator-container {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow-y: auto;
+}
+
+.calculator-card {
+  width: 100%;
+  max-width: 720px;
+
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Header */
+.calculator-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.calculator-title {
+  font-family: 'Georgia', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+}
+
+.calculator-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+/* Total Display */
+.total-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+
+.total-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.total-amount {
+  font-size: 42px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+
+.total-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+.reset-btn {
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-btn:hover {
+  background: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.reset-btn:active {
+  transform: translateY(0);
+}
+
+/* Currencies List */
+.currencies-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+/* Currency Row */
+.currency-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: all 0.2s ease;
+}
+
+.currency-row:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.currency-image-btn {
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.currency-image-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.currency-image-btn:active {
+  transform: scale(0.98);
+}
+
+.currency-image {
+  width: 100%;
+  height: calc(100% + 4px);
+  margin-top: -2px;
+  object-fit: cover;
+}
+
+.currency-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.currency-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.currency-value {
+  font-size: 12px;
+  color: #666;
+}
+
+.currency-input {
+  width: 70px;
+  padding: 10px 12px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #333;
+  transition: all 0.2s ease;
+  outline: none;
+  flex-shrink: 0;
+}
+
+.currency-input::placeholder {
+  color: #bbb;
+}
+
+.currency-input:focus {
+  border-color: rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .calculator-container {
+    padding: 20px 16px;
+  }
+
+  .calculator-card {
+    padding: 24px 20px;
+  }
+
+  .calculator-title {
+    font-size: 24px;
+  }
+
+  .total-display {
+    padding: 20px;
+  }
+
+  .total-amount {
+    font-size: 36px;
+  }
+
+  .currency-image-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .currency-name {
+    font-size: 14px;
+  }
+
+  .currency-input {
+    width: 60px;
+    padding: 8px 10px;
+    font-size: 15px;
+  }
+}
